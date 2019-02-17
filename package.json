@@ -1,0 +1,23 @@
+{
+  "name": "mandatory-uxdesign2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup src/js/quizController.js --file bundle.js --format iife --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ultraemme/mandatory-uxdesign2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ultraemme/mandatory-uxdesign2/issues"
+  },
+  "homepage": "https://github.com/ultraemme/mandatory-uxdesign2#readme",
+  "dependencies": {
+    "rollup": "^1.2.0"
+  }
+}
