@@ -2,12 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Quiz</title>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="bundle.js"></script>
+  <link rel="stylesheet" href="src/styles/reset.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="src/styles/style.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="bundle.js" defer></script>
 </head>
 <body>
-  
+  <div class="fade-overlay"></div>
+  <header>
+    <i class="header__menu material-icons">menu</i>
+    <h1 class="header__title">Quiz</h1>
+  </header>
+  <!--main -->
+  <main>
+    <button class="quiz-start__button flex">
+      <i class="material-icons quiz-start__icon">done_all</i>
+      <div class="quiz-start__text">START QUIZ</div>
+    </button>
+    <!--come in from right, stats, gamescreen(main), about-->
+  </main>
+  <!--left (nav)-->
+  <nav>
+
+  </nav>
 </body>
 </html>
