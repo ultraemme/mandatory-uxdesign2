@@ -13,29 +13,30 @@
 </head>
 <body>
   <header>
-    <button class="header__menu--button" aria-label="menu"><i class="header__menu material-icons" tabindex="-1">menu</i></button>
+    <button class="header__menu--button" aria-label="menu" tabindex="0"><i class="header__menu material-icons" tabindex="-2">menu</i></button>
     <h1 class="header__title" aria-label="header title"></h1>
   </header>
-  <main>
+  <main tabindex="-2">
 
   </main>
-  <nav>
-    <div class="nav__header flex">
-      <h1 class="nav__title">Quiz Master</h1>
-      <span class="nav__description">Become the master of quizzies!</span>
+  <nav tabindex="-1" aria-label="navigation">
+    <div class="nav__header flex" tabindex="-2">
+      <h1 class="nav__title" tabindex="-2">Quiz Master</h1>
+      <span class="nav__description" tabindex="-2">Become the master of quizzies!</span>
     </div>
-    <div class="nav__navigation flex">
-      <a href="#" aria-label="Game screen">Game screen</a>
-      <a href="#" aria-label="Statistics">Statistics</a>
-      <a href="#" aria-label="About">About</a>
+    <div class="nav__navigation flex" tabindex="-2">
+      <button class="nav__navigation-button" href="#" aria-label="Game screen" tabindex="-1">Game screen</button>
+      <button class="nav__navigation-button" href="#" aria-label="Statistics" tabindex="-1">Statistics</button>
+      <button class="nav__navigation-button" href="#" aria-label="About" tabindex="-1">About</button>
+      <button class="nav__aria--exit" aria-label="Exit menu" tabindex="-1" style="opacity: 0;"></button>
     </div>
   </nav>
   <div class="fade-overlay__modal" tabindex="-1"></div>
-  <div class="fade-overlay__nav" aria-label="exit menu" tabindex="0"></div>
-  <div class="modal">
-    <div class="modal__score" tabindex="0"></div>
-    <button class="quiz__button modal__button--restart">RESTART</button>
-    <button class="quiz__button modal__button--continue">CONTINUE</button>
+  <div class="fade-overlay__nav" aria-label="exit menu" tabindex="-1"></div>
+  <div class="modal" tabindex="-2">
+    <div class="modal__score" tabindex="-1"></div>
+    <button class="quiz__button modal__button--restart" tabindex="-1">RESTART</button>
+    <button class="quiz__button modal__button--continue" tabindex="-1">CONTINUE</button>
   </div>
 </body>
 </html>

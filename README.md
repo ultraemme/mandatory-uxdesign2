@@ -1,17 +1,16 @@
 # mandatory-uxdesign2
 
 **TODO:**
-- [ ] accessability
-    - [ ] dialog - https://www.viget.com/articles/the-dialog-element/
-    - [ ] aria-labels
+- [x] accessability
+    - [x] aria-labels
     
     
     
 - [ ] styling
     - [ ]  radio buttons
     - [x]  submit button
-    - [ ]  a little bit of this
-    - [ ]  ...and a little bit of that
+    - [x]  a little bit of this
+    - [x]  ...and a little bit of that
     
     
 - [x] ajax

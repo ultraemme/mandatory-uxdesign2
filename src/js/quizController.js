@@ -4,27 +4,29 @@ import quizView from './quizView';
 let data;
 let fade = document.querySelector(".fade-overlay__nav");
 let nav = document.querySelector("nav");
+let menu = document.querySelector(".header__menu--button");
+let main = document.querySelector("main");
+let modal = document.querySelector(".modal");
 
 init();
 
 function init() {
-  let aElements = nav.querySelectorAll("a");
-  aElements[0].addEventListener("click", quizScreen);
-  aElements[1].addEventListener("click", statisticsScreen);
-  aElements[2].addEventListener("click", aboutScreen);
+  let navBtns = nav.querySelectorAll(".nav__navigation-button");
+  navBtns[0].addEventListener("click", quizScreen);
+  navBtns[1].addEventListener("click", statisticsScreen);
+  navBtns[2].addEventListener("click", aboutScreen);
 
   let modalBtnContinue = document.querySelector(".modal__button--continue");
-  modalBtnContinue.addEventListener("click", modalContinue)
+  modalBtnContinue.addEventListener("click", modalContinue);
   let modalBtnRestart = document.querySelector(".modal__button--restart");
-  modalBtnRestart.addEventListener("click", modalRestart)
+  modalBtnRestart.addEventListener("click", modalRestart);
+
+  let navExit = document.querySelector(".nav__aria--exit");
+  navExit.addEventListener("click", hideNav);
 
   document.querySelector(".header__menu--button").addEventListener("click", showNav);
   fade.addEventListener("click", hideNav);
-  fade.addEventListener("keypress", function (e) { //make button
-    if(e.code === "Space" || e.code === "Enter") {
-      hideNav();
-    }
-  })
+
   quizScreen();
 }
 
@@ -46,6 +48,8 @@ function aboutScreen(e) {
 }
 
 function modalContinue() {
+  menu.tabIndex = 0;
+  removeTabIndex(modal);
   document.querySelector(".modal").classList.remove("modal--show");
   document.querySelector(".fade-overlay__modal").classList.remove("fade-overlay__modal--show");
   document.querySelector("form").removeEventListener("submit", submitEvent);
@@ -86,9 +90,12 @@ function submitEvent(e) {
     }
   }
   if (userAnswers.length === data.length) {
+    menu.tabIndex = -1;
     quizView.renderModal(quizModel.correctQuiz(userAnswers, data));
     document.querySelector(".modal").classList.add("modal--show");
     document.querySelector(".fade-overlay__modal").classList.add("fade-overlay__modal--show");
+    addTabIndex(modal);
+    removeTabIndex(main);
   } else {
     console.log("Please answer all questions!"); //modal
   }
@@ -96,12 +103,40 @@ function submitEvent(e) {
 
 function showNav() {
   fade.classList.add("fade-overlay__nav--show");
+  menu.tabIndex = -1;
   nav.classList.add("nav--show");
   document.body.style.overflow = "hidden"; //avoid scrolling if quiz is running
+  addTabIndex(nav);
+  removeTabIndex(main);
 }
 
 function hideNav() {
   fade.classList.remove("fade-overlay__nav--show");
+  menu.tabIndex = 0;
   nav.classList.remove("nav--show");
   document.body.style.overflow = "visible";
+  removeTabIndex(nav);
+  addTabIndex(main);
+}
+
+function removeTabIndex(element) {
+  if (element.tabIndex === 0) {
+    element.tabIndex = -1;
+  }
+  if (element.children) {
+    for (let child of element.children) {
+      removeTabIndex(child);
+    }
+  }
+}
+
+function addTabIndex(element) {
+  if (element.tabIndex === -1) {
+    element.tabIndex = 0;
+  }
+  if (element.children) {
+    for (let child of element.children) {
+      addTabIndex(child);
+    }
+  }
 }
