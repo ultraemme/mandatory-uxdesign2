@@ -7,6 +7,10 @@
   font-size: 62.5%;
 }
 
+strong {
+  font-weight: bold;
+}
+
 .flex {
   display: flex;
 }
@@ -34,6 +38,13 @@ header {
   font-size: 3rem;
 }
 
+.header__menu--button {
+  padding: 0;
+  margin: 0;
+  background-color: unset;
+  border: none;
+}
+
 main {
   padding: 92px 20px 20px 20px;
   min-height: 100vh;
@@ -53,6 +64,10 @@ main {
   outline: none;
 }
 .quiz__button-submit {
+  margin-top: 20px;
+  margin-left: calc(50% - 45px);
+  width: 90px;
+  height: 30px;
   font-size: 1.8rem;
 }
 
@@ -76,7 +91,7 @@ main {
   font-size: 2rem
 }
 
-.fade-overlay {
+.fade-overlay__modal, .fade-overlay__nav {
   transition: 0.5s cubic-bezier(0, 0.01, 1, 1.01);
   position: fixed;
   top: 0;
@@ -87,12 +102,55 @@ main {
   background-color: black;
   opacity: 0;
 }
-.fade-overlay--show {
+.fade-overlay__nav--show, .fade-overlay__modal--show {
   transition: 0.5s cubic-bezier(0, 0.01, 1, 1.01);
-  opacity: 0.3;
+  opacity: 0.4;
   z-index: 50; /*between main screen and other screens*/
 }
 
+.modal {
+  position: absolute;
+  padding: 15px;
+  box-sizing: border-box;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 238px;
+  height: 144px;
+  background-color: #FFEBDE;
+  border-radius: 4px;
+  color: #251205;
+  opacity: 0;
+}
+
+.modal--show {
+  transition: 0.5s cubic-bezier(0, 0.01, 1, 1.01);
+  top: 150%; /* bad solution, preferably sticky... */
+  opacity: 1;
+  z-index: 999999999;
+}
+
+.modal__score {
+  font-size: 2.0rem;
+  color: #251205;
+  padding-top: 10px;
+}
+
+.modal__button--continue, .modal__button--restart {
+  height: 24px;
+  position: absolute;
+  bottom: 15px;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.modal__button--continue {
+  right: 15px;
+}
+
+.modal__button--restart {
+  left: 15px;
+}
 nav {
   padding: 20px;
   transition: left 0.5s ease-in-out;
@@ -118,6 +176,7 @@ nav {
   width: 100%;
   height: 24rem;
   box-sizing: border-box;
+  color: #583722;
 }
 .nav__title {
   font-size: 3rem;
@@ -131,7 +190,7 @@ nav {
 nav a {
   padding-left: 10px;
   margin: 4px 0 4px 0;
-  color: #251205;
+  color: #583722;
   text-decoration: none;
   font-size: 1.8rem;
   line-height: 3.6rem;

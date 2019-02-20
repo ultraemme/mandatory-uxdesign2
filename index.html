@@ -13,7 +13,7 @@
 </head>
 <body>
   <header>
-    <i class="header__menu material-icons" aria-label="menu" tabindex="0">menu</i>
+    <button class="header__menu--button" aria-label="menu"><i class="header__menu material-icons" tabindex="-1">menu</i></button>
     <h1 class="header__title" aria-label="header title"></h1>
   </header>
   <main>
@@ -30,6 +30,12 @@
       <a href="#" aria-label="About">About</a>
     </div>
   </nav>
-  <div class="fade-overlay" aria-label="exit menu" tabindex="0"></div>
+  <div class="fade-overlay__modal" tabindex="-1"></div>
+  <div class="fade-overlay__nav" aria-label="exit menu" tabindex="0"></div>
+  <div class="modal">
+    <div class="modal__score" tabindex="0"></div>
+    <button class="quiz__button modal__button--restart">RESTART</button>
+    <button class="quiz__button modal__button--continue">CONTINUE</button>
+  </div>
 </body>
 </html>
