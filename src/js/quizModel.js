@@ -1,11 +1,14 @@
 export default {
   stats: {
-    "quizRound": 1,
+    "quizRound": 0,
     "correct": 0,
-    "incorrect": 0
+    "questionsAnswered": 0,
+    "incorrect": 0,
+    "answerRatio": 0
   },
   setStats(correct, incorrect) {
     this.stats.quizRound++;
+    this.stats.questionsAnswered += correct + incorrect;
     this.stats.correct += correct;
     this.stats.incorrect += incorrect;
     this.stats.answerRatio =
@@ -38,5 +41,16 @@ export default {
       arr[randomIndex] = temporaryValue;
     }
     return arr;
+  },
+  correctQuiz(userAnswers, response) {
+    console.log(userAnswers, response);
+    let correct = 0;
+    for (let question of response) {
+      if (question.correct_answer === userAnswers[response.indexOf(question)]) {
+        correct++;
+      }
+    }
+    this.setStats(correct, userAnswers.length-correct);
+    return `You got ${correct} out of ${userAnswers.length-correct+correct} questions right!`
   }
 }

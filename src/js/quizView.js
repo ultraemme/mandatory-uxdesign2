@@ -3,7 +3,8 @@ import quizStatistics from './templates/quizStatisticsTemplate';
 import quizAbout from './templates/quizAboutTemplate';
 import quizMainStarted from './templates/quizMainStartedTemplate';
 import quizQuestion from'./templates/quizQuestionTemplate';
-import quizQuestionAnswer from'./templates/quizQuestionAnswerTemplate';
+import quizQuestionAnswer from './templates/quizQuestionAnswerTemplate';
+import quizSubmitButton from './templates/quizSubmitButtonTemplate';
 
 export default {
   renderQuiz(title) {
@@ -37,5 +38,13 @@ export default {
     let headerTitle = document.querySelector(".header__title");
     main.innerHTML = quizAbout();
     headerTitle.innerHTML = title;
+  },
+  renderModal(string) {
+    let scoreContainer = document.querySelector(".modal__score");
+    scoreContainer.innerHTML = string;
+  },
+  renderQuizSubmitButton() {
+    let form = document.querySelector("form");
+    form.innerHTML += quizSubmitButton();
   }
 }
