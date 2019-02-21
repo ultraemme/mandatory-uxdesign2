@@ -227,6 +227,7 @@ strong {
   box-sizing: border-box;
   background-color: #FFEBDE;
   border-radius: 4px;
+  z-index: -999999;
   color: #251205;
   opacity: 0;
 }
