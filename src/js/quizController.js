@@ -53,6 +53,7 @@ function modalContinue() {
   document.querySelector(".modal").classList.remove("modal--show");
   document.querySelector(".fade-overlay__modal").classList.remove("fade-overlay__modal--show");
   document.querySelector("form").removeEventListener("submit", submitEvent);
+  document.querySelector(".quiz__submit").classList.add("quiz__submit--disabled");
   document.querySelector("form").addEventListener("submit", function(e) { //prevent default after continuing
     e.preventDefault();
   });
