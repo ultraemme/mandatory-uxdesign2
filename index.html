@@ -12,14 +12,14 @@
   <script src="bundle.js" defer></script>
 </head>
 <body>
-  <header>
-    <button class="header__menu--button" aria-label="menu" tabindex="0"><i class="header__menu material-icons" tabindex="-2">menu</i></button>
-    <h1 class="header__title" aria-label="header title"></h1>
+  <header class="header flex">
+    <button class="header__menu-button" aria-label="menu" tabindex="0"><i class="header__menu material-icons" tabindex="-2">menu</i></button>
+    <h1 class="header__title"></h1>
   </header>
   <main tabindex="-2">
 
   </main>
-  <nav tabindex="-1" aria-label="navigation">
+  <nav class="nav" tabindex="-1" aria-label="navigation">
     <div class="nav__header flex" tabindex="-2">
       <h1 class="nav__title" tabindex="-2">Quiz Master</h1>
       <span class="nav__description" tabindex="-2">Become the master of quizzies!</span>
@@ -35,8 +35,8 @@
   <div class="fade-overlay__nav" aria-label="exit menu" tabindex="-1"></div>
   <div class="modal" tabindex="-2">
     <div class="modal__score" tabindex="-1"></div>
-    <button class="quiz__button modal__button--restart" tabindex="-1">RESTART</button>
-    <button class="quiz__button modal__button--continue" tabindex="-1">CONTINUE</button>
+    <button class="quiz__button modal__restart" tabindex="-1">RESTART</button>
+    <button class="quiz__button modal__continue" tabindex="-1">CONTINUE</button>
   </div>
 </body>
 </html>

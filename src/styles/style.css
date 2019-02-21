@@ -7,20 +7,11 @@
   font-size: 62.5%;
 }
 
-strong {
-  font-weight: bold;
-}
-
-.flex {
-  display: flex;
-}
-
-header {
+.header {
   position: absolute;
   width: 100%;
   overflow: hidden;
   padding: 20px 50px 20px 20px;
-  display: flex;
   flex-direction: row;
   align-items: center;
   background-color: #CEA78E;
@@ -38,12 +29,14 @@ header {
   font-size: 3rem;
 }
 
-.header__menu--button {
+.header__menu-button {
   padding: 0;
   margin: 0;
   background-color: unset;
   border: none;
 }
+
+/* main */
 
 main {
   padding: 92px 20px 20px 20px;
@@ -55,6 +48,31 @@ main {
   box-sizing: border-box;
 }
 
+.quiz__header {
+  font-size: 2.4rem;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.quiz__question-container {
+  padding: 10px 0 10px 0;
+  font-size: 1.8rem;
+}
+
+.quiz__answer-container {
+  padding-bottom: 8px;
+}
+
+.quiz__radio {
+  margin: 0;
+  padding: 0;
+  font-size: 1.4rem;
+}
+
+.quiz__answer {
+  font-size: 1.6rem;
+}
+
 .quiz__button {
   height: 40px;
   background-color: #eedacd;
@@ -63,7 +81,8 @@ main {
   border-radius: 4px;
   outline: none;
 }
-.quiz__button-submit {
+
+.quiz__submit {
   margin-top: 20px;
   margin-left: calc(50% - 45px);
   width: 90px;
@@ -71,7 +90,7 @@ main {
   font-size: 1.8rem;
 }
 
-.quiz-start__button {
+.quiz__start {
   position: absolute;
   padding: 0 10px 0 10px;
   top: 40%;
@@ -79,79 +98,20 @@ main {
   transform: translate(-50%, -50%);
   flex-direction: row;
 }
-.quiz-start__button:active {
-  transition: .050s ease-in-out;
-  background-color: #ddc9bc;
-}
-.quiz-start__text {
+
+.quiz__start-text { /* not sure about these names */
   padding-left: 10px;
   font-size: 1.8rem;
+  padding-top: 2px;
 }
-.quiz-start__icon {
+
+.quiz-start-icon {
   font-size: 2rem
 }
 
-.fade-overlay__modal, .fade-overlay__nav {
-  transition: 0.5s cubic-bezier(0, 0.01, 1, 1.01);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: -1;
-  background-color: black;
-  opacity: 0;
-}
-.fade-overlay__nav--show, .fade-overlay__modal--show {
-  transition: 0.5s cubic-bezier(0, 0.01, 1, 1.01);
-  opacity: 0.4;
-  z-index: 50; /*between main screen and other screens*/
-}
+/* navigation */
 
-.modal {
-  position: absolute;
-  padding: 15px;
-  box-sizing: border-box;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 238px;
-  height: 144px;
-  background-color: #FFEBDE;
-  border-radius: 4px;
-  color: #251205;
-  opacity: 0;
-}
-
-.modal--show {
-  transition: 0.5s cubic-bezier(0, 0.01, 1, 1.01);
-  top: 150%; /* bad solution, preferably sticky... */
-  opacity: 1;
-  z-index: 999999999;
-}
-
-.modal__score {
-  font-size: 2.0rem;
-  color: #251205;
-  padding-top: 10px;
-}
-
-.modal__button--continue, .modal__button--restart {
-  height: 24px;
-  position: absolute;
-  bottom: 15px;
-  font-size: 1.6rem;
-  font-weight: bold;
-}
-
-.modal__button--continue {
-  right: 15px;
-}
-
-.modal__button--restart {
-  left: 15px;
-}
-nav {
+.nav {
   padding: 20px;
   transition: left 0.5s ease-in-out;
   position: absolute;
@@ -159,7 +119,7 @@ nav {
   left: -90%;
   width: 80%;
   height: 100vh;
-  z-index: 99; /*has to always be on top*/
+  z-index: 99;
   background-color: #FFEBDE;
   box-shadow: -3px 0px 18px 0px rgba(0,0,0,0.75);
   box-sizing: border-box;
@@ -188,6 +148,9 @@ nav {
   font-size: 1.6rem;
 }
 
+.nav__navigation {
+  flex-direction: column;
+}
 
 .nav__navigation-button {
   padding-left: 10px;
@@ -204,11 +167,12 @@ nav {
   text-align: left;
 }
 
-.nav__navigation {
-  flex-direction: column;
+.nav__aria--exit {
+  pointer-events: none;
 }
 
 /* statistics screen */
+
 .stats__heading {
   padding: 20px 0 4px 0;
   font-size: 1.8rem;
@@ -219,38 +183,74 @@ nav {
 }
 
 /* about */
+
 .about__text {
   padding-top: 20px;
   font-size: 1.8rem;
 }
 
-/* quiz */
-.quiz__header {
-  font-size: 2.4rem;
+/* miscellaneous */
+
+strong {
   font-weight: bold;
-  padding-bottom: 10px;
 }
 
-.quiz__question-container {
-  display: block; /* padding only works on spans if display:block/inline-block */
-  padding: 10px 0 10px 0;
-  font-size: 1.8rem;
+.flex {
+  display: flex;
 }
 
-.quiz__question-answer {
+.fade-overlay__modal, .fade-overlay__nav {
+  transition: 0.5s linear;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  background-color: black;
+  opacity: 0;
+}
+.fade-overlay__nav--show, .fade-overlay__modal--show {
+  transition: 0.5s linear;
+  opacity: 0.4;
+  z-index: 50;
+}
+
+.modal {
+  position: fixed;
+  padding: 15px;
+  width: 238px;
+  height: 144px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  background-color: #FFEBDE;
+  border-radius: 4px;
+  color: #251205;
+  opacity: 0;
+}
+
+.modal--show {
+  transition: 0.5s linear;
+  opacity: 1;
+  z-index: 999999999;
+}
+
+.modal__score {
+  font-size: 2.0rem;
+  color: #251205;
+  padding-top: 10px;
+}
+
+.modal__continue, .modal__restart {
+  height: 24px;
+  position: absolute;
+  bottom: 15px;
   font-size: 1.6rem;
+  font-weight: bold;
 }
 
-.quiz__answer-container {
-  padding-bottom: 8px;
-}
-
-.quiz__radiobtn {
-  margin: 0;
-  padding: 0;
-  font-size: 1.4rem;
-}
-
-.nav__aria--exit {
-  pointer-events: none;
+.modal__continue {
+  right: 15px;
 }

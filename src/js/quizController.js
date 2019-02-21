@@ -4,7 +4,7 @@ import quizView from './quizView';
 let data;
 let fade = document.querySelector(".fade-overlay__nav");
 let nav = document.querySelector("nav");
-let menu = document.querySelector(".header__menu--button");
+let menu = document.querySelector(".header__menu-button");
 let main = document.querySelector("main");
 let modal = document.querySelector(".modal");
 
@@ -16,15 +16,15 @@ function init() {
   navBtns[1].addEventListener("click", statisticsScreen);
   navBtns[2].addEventListener("click", aboutScreen);
 
-  let modalBtnContinue = document.querySelector(".modal__button--continue");
+  let modalBtnContinue = document.querySelector(".modal__continue");
+  let modalBtnRestart = document.querySelector(".modal__restart");
   modalBtnContinue.addEventListener("click", modalContinue);
-  let modalBtnRestart = document.querySelector(".modal__button--restart");
   modalBtnRestart.addEventListener("click", modalRestart);
 
   let navExit = document.querySelector(".nav__aria--exit");
   navExit.addEventListener("click", hideNav);
 
-  document.querySelector(".header__menu--button").addEventListener("click", showNav);
+  menu.addEventListener("click", showNav);
   fade.addEventListener("click", hideNav);
 
   quizScreen();
@@ -32,7 +32,7 @@ function init() {
 
 function quizScreen() {
   quizView.renderQuiz("Quiz");
-  let startQuiz = document.querySelector(".quiz-start__button");
+  let startQuiz = document.querySelector(".quiz__start");
   startQuiz.addEventListener("click", quizStart);
   hideNav();
 }
@@ -97,7 +97,7 @@ function submitEvent(e) {
     addTabIndex(modal);
     removeTabIndex(main);
   } else {
-    console.log("Please answer all questions!"); //modal
+    console.log("Please answer all questions!"); //add a modal
   }
 }
 
